@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "239204825584",
-    "project_id": "sociallogin-bb639"
+    "project_number": "",
+    "project_id": ""
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:239204825584:android:22d85477e9e3dfe1",
+        "mobilesdk_app_id": "",
         "android_client_info": {
           "package_name": "com.spade.sociallogin"
         }
       },
       "oauth_client": [
         {
-          "client_id": "239204825584-vujrj8bq58p3mkdtk34ci4gle9mecdsp.apps.googleusercontent.com",
+          "client_id": "",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.spade.sociallogin",
-            "certificate_hash": "c057c845e2810f2d8d5e20a3412f22e4f1300743"
+            "package_name": "",
+            "certificate_hash": ""
           }
         },
         {
-          "client_id": "239204825584-70gbnltu03kb44p0lpfvte1anhn9vv6u.apps.googleusercontent.com",
+          "client_id": "",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCwi7bXr3ij7mEfNKzQ940ynv3dEaWzHtM"
+          "current_key": ""
         }
       ],
       "services": {
@@ -44,5 +44,5 @@
       }
     }
   ],
-  "configuration_version": "1"
+  "configuration_version": ""
 }
