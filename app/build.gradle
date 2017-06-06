@@ -1,28 +1,7 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
 
-ext {
-    bintrayRepo = 'SocialLogin'
-    bintrayName = 'SocialLogin'
-
-    publishedGroupId = 'com.spade.sociallogin'
-    libraryName = 'SocialLogin'
-    artifact = 'SocialLogin'
-
-    libraryDescription = 'A wrapper for Facebook and google login on Android'
-
-    siteUrl = 'https://github.com/AymanAbouzeid/SocialLogin'
-    gitUrl = 'https://github.com/AymanAbouzeid/SocialLogin.git'
-
-    libraryVersion = '1.0.0'
-
-    developerId = 'ayman'
-    developerName = 'Ayman Abouzeid'
-    developerEmail = 'aymanabouzaid92@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
+group='com.github.AymanAbouzeid'
 
 android {
     compileSdkVersion 25
@@ -61,5 +40,3 @@ dependencies {
 }
 
 apply plugin: 'com.google.gms.google-services'
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
