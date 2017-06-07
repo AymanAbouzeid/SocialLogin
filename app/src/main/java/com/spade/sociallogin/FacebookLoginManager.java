@@ -1,5 +1,6 @@
 package com.spade.sociallogin;
 
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 
@@ -38,6 +40,10 @@ public class FacebookLoginManager {
     private LoginCallBack mLoginCallback;
     private LoginManager mLoginManager;
     private LogoutCallBack mLogoutCallBack;
+
+    public static void initFacebookEvents(Application application) {
+        AppEventsLogger.activateApp(application);
+    }
 
     public FacebookLoginManager(LoginCallBack loginCallback) {
         this.mLoginCallback = loginCallback;
