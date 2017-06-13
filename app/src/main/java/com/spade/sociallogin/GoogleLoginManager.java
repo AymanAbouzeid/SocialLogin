@@ -22,16 +22,16 @@ import com.google.android.gms.common.api.Status;
 public class GoogleLoginManager implements GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks {
 
     private static final int RC_GOOGLE_SIGN_IN = 1000;
-    private LoginCallBack mLoginCallBack;
+    private GoogleLoginCallBack mLoginCallBack;
     private LogoutCallBack mLogoutCallBack;
     private GoogleApiClient mGoogleApiClient;
     private GoogleSignInOptions mGoogleSignInOptions;
     private FragmentActivity mFragmentActivity;
 
     public GoogleLoginManager(FragmentActivity fragmentActivity,
-                              LoginCallBack loginCallBack) {
+                              GoogleLoginCallBack facebookLoginCallBack) {
         this.mFragmentActivity = fragmentActivity;
-        this.mLoginCallBack = loginCallBack;
+        this.mLoginCallBack = facebookLoginCallBack;
         initGoogleApiClient();
     }
 
@@ -85,9 +85,9 @@ public class GoogleLoginManager implements GoogleApiClient.OnConnectionFailedLis
             GoogleSignInAccount userAccount = result.getSignInAccount();
             SocialUser socialUser = new SocialUser(userAccount.getDisplayName(), userAccount.getEmail(),
                     userAccount.getId(), userAccount.getIdToken());
-            mLoginCallBack.onLoginSuccess(socialUser);
+            mLoginCallBack.onGoogleLoginSuccess(socialUser);
         } else {
-            mLoginCallBack.onLoginFail();
+            mLoginCallBack.onGoogleLoginFail();
         }
     }
 

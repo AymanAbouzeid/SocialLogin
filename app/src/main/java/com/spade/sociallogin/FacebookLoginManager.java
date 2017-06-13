@@ -37,7 +37,7 @@ public class FacebookLoginManager {
     private final String PARAMETERS = "id,name,email";
 
     private CallbackManager mCallbackManager;
-    private LoginCallBack mLoginCallback;
+    private FacebookLoginCallBack mFacebookLoginCallback;
     private LoginManager mLoginManager;
     private LogoutCallBack mLogoutCallBack;
 
@@ -45,8 +45,8 @@ public class FacebookLoginManager {
         AppEventsLogger.activateApp(application);
     }
 
-    public FacebookLoginManager(LoginCallBack loginCallback) {
-        this.mLoginCallback = loginCallback;
+    public FacebookLoginManager(FacebookLoginCallBack facebookLoginCallback) {
+        this.mFacebookLoginCallback = facebookLoginCallback;
         initFacebookManagers();
     }
 
@@ -66,12 +66,12 @@ public class FacebookLoginManager {
 
             @Override
             public void onCancel() {
-                mLoginCallback.onLoginCancel();
+                mFacebookLoginCallback.onFacebookLoginCancel();
             }
 
             @Override
             public void onError(FacebookException error) {
-                mLoginCallback.onLoginFail(error);
+                mFacebookLoginCallback.onFacebookLoginFail(error);
             }
         });
     }
@@ -102,7 +102,7 @@ public class FacebookLoginManager {
                             String token = loginResult.getAccessToken().getToken();
                             SocialUser socialUser = new SocialUser(name, email, id, token);
 
-                            mLoginCallback.onLoginSuccess(socialUser);
+                            mFacebookLoginCallback.onFacebookLoginSuccess(socialUser);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
