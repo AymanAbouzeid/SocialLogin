@@ -32,9 +32,10 @@ public class FacebookLoginManager {
     private static final int RC_FACEBOOK_SIGN_IN = FacebookSdk.getCallbackRequestCodeOffset();
     private final String USER_NAME = "name";
     private final String USER_EMAIL = "email";
+    private final String USER_PICTURE = "picture";
     private final String PUBLIC_PROFILE = "public_profile";
     private final String FIELDS = "fields";
-    private final String PARAMETERS = "id,name,email";
+    private final String PARAMETERS = "id,name,email,picture.type(large)";
 
     private CallbackManager mCallbackManager;
     private FacebookLoginCallBack mFacebookLoginCallback;
@@ -96,11 +97,17 @@ public class FacebookLoginManager {
                     @Override
                     public void onCompleted(JSONObject object, GraphResponse response) {
                         try {
-                            String email = object.getString(USER_EMAIL);
-                            String name = object.getString(USER_NAME);
+                            String email = "", name = "", photo = "";
+                            if (object.has(USER_EMAIL))
+                                email = object.getString(USER_EMAIL);
+                            if (object.has(USER_NAME))
+                                name = object.getString(USER_NAME);
+                            if (object.has(USER_PICTURE))
+                                photo = object.getJSONObject(USER_PICTURE).getJSONObject("data").getString("url");
+
                             String id = loginResult.getAccessToken().getUserId();
                             String token = loginResult.getAccessToken().getToken();
-                            SocialUser socialUser = new SocialUser(name, email, id, token);
+                            SocialUser socialUser = new SocialUser(name, email, id, token, photo);
 
                             mFacebookLoginCallback.onFacebookLoginSuccess(socialUser);
                         } catch (JSONException e) {

@@ -83,8 +83,12 @@ public class GoogleLoginManager implements GoogleApiClient.OnConnectionFailedLis
     private void handleSignInResult(GoogleSignInResult result) {
         if (result.isSuccess()) {
             GoogleSignInAccount userAccount = result.getSignInAccount();
+            String userPhoto = "";
+            if (userAccount.getPhotoUrl() != null) {
+                userPhoto = userAccount.getPhotoUrl().toString();
+            }
             SocialUser socialUser = new SocialUser(userAccount.getDisplayName(), userAccount.getEmail(),
-                    userAccount.getId(), userAccount.getIdToken());
+                    userAccount.getId(), userAccount.getIdToken(), userPhoto);
             mLoginCallBack.onGoogleLoginSuccess(socialUser);
         } else {
             mLoginCallBack.onGoogleLoginFail();

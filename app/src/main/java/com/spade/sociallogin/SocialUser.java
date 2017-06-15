@@ -10,12 +10,14 @@ public class SocialUser {
     private String emailAddress;
     private String userId;
     private String userToken;
+    private String userPhoto;
 
-    public SocialUser(String name, String emailAddress, String userId, String userToken) {
+    public SocialUser(String name, String emailAddress, String userId, String userToken, String userPhoto) {
         this.name = name;
         this.emailAddress = emailAddress;
         this.userId = userId;
         this.userToken = userToken;
+        this.userPhoto = userPhoto;
     }
 
     public SocialUser(String name, String emailAddress) {
@@ -53,5 +55,13 @@ public class SocialUser {
 
     public void setUserToken(String userToken) {
         this.userToken = userToken;
+    }
+
+    public String getUserPhoto() {
+        return userPhoto;
+    }
+
+    public void setUserPhoto(String userPhoto) {
+        this.userPhoto = userPhoto;
     }
 }
