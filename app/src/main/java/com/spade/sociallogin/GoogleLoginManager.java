@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 
 import com.google.android.gms.auth.api.Auth;
@@ -54,6 +55,11 @@ public class GoogleLoginManager implements GoogleApiClient.OnConnectionFailedLis
     public void loginWithGoogle() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         mFragmentActivity.startActivityForResult(signInIntent, RC_GOOGLE_SIGN_IN);
+    }
+
+    public void loginWithGoogle(Fragment fragment) {
+        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+        fragment.startActivityForResult(signInIntent, RC_GOOGLE_SIGN_IN);
     }
 
     public void logout() {
