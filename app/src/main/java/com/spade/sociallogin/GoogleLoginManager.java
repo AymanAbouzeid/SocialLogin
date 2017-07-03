@@ -75,6 +75,7 @@ public class GoogleLoginManager implements GoogleApiClient.OnConnectionFailedLis
     public void disconnectGoogleApi() {
         if (mGoogleApiClient != null) {
             mGoogleApiClient.disconnect();
+            mGoogleApiClient.stopAutoManage(mFragmentActivity);
             mGoogleApiClient = null;
         }
     }
