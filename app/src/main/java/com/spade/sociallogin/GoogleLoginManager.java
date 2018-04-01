@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -88,6 +89,7 @@ public class GoogleLoginManager implements GoogleApiClient.OnConnectionFailedLis
     }
 
     private void handleSignInResult(GoogleSignInResult result) {
+        Log.d("Login Manager", result.getStatus().getStatusMessage() + " ..  " + result.getStatus().getStatusCode());
         if (result.isSuccess()) {
             GoogleSignInAccount userAccount = result.getSignInAccount();
             String userPhoto = "";
